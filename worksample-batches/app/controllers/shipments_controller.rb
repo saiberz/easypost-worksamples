@@ -34,7 +34,7 @@ class ShipmentsController < ApplicationController
 
   private
 
-  def find_member(params)
+  def find_member
     unless shipment = Shipment.where(
         user_id: current_user.id,
         mode: current_mode,
