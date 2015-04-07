@@ -30,7 +30,8 @@ class BatchesController < ApplicationController
   def find_member
     unless batch = Batch.where(user_id: current_user.id,
         mode: current_mode,
-        public_id: params[:id]).first
+        public_id: params[:id]
+    ).first
       raise EasyPost::Error::NOT_FOUND unless batch
     end
     batch

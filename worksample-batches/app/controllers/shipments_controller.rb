@@ -16,8 +16,8 @@ class ShipmentsController < ApplicationController
     result = EasyPost::Interactor::ShipmentCreate.call(
       params: params[:shipment],
       user: current_user,
-      mode: current_mode)
-
+      mode: current_mode
+    )
     render_result :shipment, result,
       status: :created,
       location: "#{shipments_path}/#{result.shipment.try(:public_id)}"
@@ -27,8 +27,8 @@ class ShipmentsController < ApplicationController
   def buy
     result = EasyPost::Interactor::ShipmentBuy.call(
       params: params[:rate],
-      shipment: find_member)
-
+      shipment: find_member
+    )
     render_result :shipment, result
   end
 
@@ -38,7 +38,8 @@ class ShipmentsController < ApplicationController
     unless shipment = Shipment.where(
         user_id: current_user.id,
         mode: current_mode,
-        public_id: params[:id]).first
+        public_id: params[:id]
+    ).first
       raise EasyPost::Error::NOT_FOUND unless shipment
     end
     shipment
