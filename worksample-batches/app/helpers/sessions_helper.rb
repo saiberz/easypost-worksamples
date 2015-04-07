@@ -8,11 +8,7 @@ module SessionsHelper
   end
 
   def ensure_signed_in
-    if !signed_in?
-      respond_to do |format|
-        format.json { render_error EasyPost::Error::UNAUTHORIZED }
-      end
-    end
+    render_error EasyPost::Error::UNAUTHORIZED unless signed_in?
   end
 end
 
