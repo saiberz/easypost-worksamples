@@ -1,0 +1,52 @@
+source 'https://rubygems.org'
+
+gem 'backburner'
+gem 'bcrypt-ruby',                '~> 3.0.1'    # Used for :has_secure_password
+gem 'get_process_mem',            '~> 0.1.1'    # What it says on the tin
+gem 'interactor'
+gem 'numbers_and_words',          '~> 0.10.0'   # Converts numbers to words
+gem 'rails',                      '3.2.21'
+gem 'rake-compiler'
+gem 'sqlite3'
+gem 'symbolize',                  git: 'git://github.com/nofxx/symbolize.git'
+gem 'unicorn',                    '~> 4.6.2'    # Rack HTTP server for fasto clients and Unix
+
+# Gems used only for assets and not required in production environments by default.
+group :assets do
+  gem 'compass-rails',             '~> 1.0.3'    # CSS Authoring Framework. Uses Sass
+  gem 'sass-rails',                '~> 3.2.6'    # Enables Sass for CSS
+  gem 'uglifier',                  '~> 1.2.3'    # Wrapper for UglifyJS to compress JS files.
+end
+
+# Gems only used in development.
+group :development do
+  gem 'better_errors',             '~> 0.9.0'    # Provides formatted error pages with better debugging
+  gem 'binding_of_caller',         '~> 0.7.2'    # Provides pry-like console for debuggin when paired with better_errors
+  gem 'letter_opener',             '~> 1.1.2'    # Provides an easy browser based view of application mailers for development
+  gem 'quiet_assets',              '~> 1.0.2'    # Suppresses rails server log to just pertinent information for debugging
+end
+
+# Gems only used for testing.
+group :test do
+  gem 'database_cleaner',          '~> 1.4'
+  gem 'factory_girl_rails',        '~> 4.2.1'
+  gem 'webmock'
+  gem 'simplecov'
+end
+
+# Gems used in both development and test.
+group :development, :test do
+  gem 'foreman',                   '~> 0.78.0'
+  gem 'fuubar',                    '~> 2.0.0'   # Instafailing RSpec formatter w/ progress bar
+  gem 'pry',                       '~> 0.10.1'
+  gem 'pry-byebug',                '~> 2.0.0'
+  gem 'pry-stack_explorer',        '~> 0.4.9'
+  gem 'pry-remote',                '~> 0.1.8'
+  gem 'rspec',                     '~> 3.2.0'
+  gem 'rspec-activemodel-mocks',   '~> 1.0.1'
+  gem 'rspec-collection_matchers', '~> 1.1.2'
+  gem 'rspec-its',                 '~> 1.2.0'
+  gem 'rspec-rails',               '~> 3.2.1'
+  gem 'vcr'
+end
+
