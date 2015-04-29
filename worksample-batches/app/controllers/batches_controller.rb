@@ -21,8 +21,9 @@ class BatchesController < ApplicationController
 
   # POST /batches/:id/buy
   def buy
-    # EasyPost::Job::BuyBatch.pool(find_member.id)
-    # render ...
+    batch = find_member
+    # EasyPost::Job::BatchBuy.pool(batch.id)
+    render json: batch
   end
 
   private
